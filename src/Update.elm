@@ -15,6 +15,9 @@ getPage hash =
         "#pagetwo" ->
             PageTwoRoute
 
+        "#pagethree" ->
+            PageThreeRoute
+
         _ ->
             HomeRoute
 
@@ -26,4 +29,4 @@ update msg model =
             ( { model | userInput = newInput }, Cmd.none )
 
         UrlChange location ->
-            { model | route = (getPage location.hash) } ! [ Cmd.none ]
+            { model | route = getPage location.hash } ! [ Cmd.none ]
